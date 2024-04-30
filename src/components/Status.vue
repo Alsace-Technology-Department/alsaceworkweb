@@ -1,5 +1,5 @@
 <script setup>
-import {onMounted, reactive} from 'vue';
+import {onServerPrefetch, reactive} from 'vue';
 import {fetchServerStatus} from "../apis/ServerStatus";
 
 const props = defineProps({
@@ -14,11 +14,11 @@ const props = defineProps({
 });
 
 const serverStatus = reactive({
-    status: 'checking',
-    players: 0
+  status: 'checking',
+  players: 0
 })
 
-onMounted(async () => {
+onServerPrefetch(async () => {
   try {
     const data = await fetchServerStatus(props.serverIp);
     Object.assign(serverStatus, data);
@@ -31,18 +31,33 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div
-      v-if="serverStatus"
-      :class="`group p-6 sm:p-8 rounded-3xl border dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl ${serverStatus.status === 'online' ? 'bg-white text-green-500' : serverStatus.status === 'offline' ? 'bg-white text-red-500' : 'bg-white text-yellow-500'}`"
-  >
-    <h3 :class="`text-2xl font-semibold ${serverStatus.status === 'online' ? 'text-green-500' : serverStatus.status === 'offline' ? 'text-red-500' : 'text-yellow-500'}`">
-      {{ props.serverName }}
-    </h3>
-    <p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">
-      {{
-        serverStatus.status === 'online' ? '在线' : serverStatus.status === 'offline' ? '离线' : '检测中...'
-      }} - Players: {{ serverStatus.players }}
-    </p>
+  <div v-if="serverStatus" class="group p-6 sm:p-8 rounded-3xl border dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-2xl font-semibold text-black">
+        {{ props.serverName }}
+      </h3>
+      <p class="text-gray-600 dark:text-gray-300">
+        {{ props.serverIp }}
+      </p>
+      <div class="p-2 rounded-full w-1/6 text-center"
+           :class="{
+             'bg-green-500': serverStatus.status === 'online',
+             'bg-yellow-500': serverStatus.status === 'checking',
+             'bg-red-500': serverStatus.status === 'offline'
+           }">
+        <span class="text-white text-lg">
+          {{ serverStatus.status === 'online' ? '在线' : serverStatus.status === 'offline' ? '离线' : '加载中' }}
+        </span>
+      </div>
+    </div>
+    <div v-if="serverStatus.status === 'online'">
+      <p class="text-4xl text-gray-900">
+        {{ serverStatus.players }}
+      </p>
+      <p class="text-gray-600 dark:text-gray-300">
+        在线人数
+      </p>
+    </div>
   </div>
   <div v-else>
     Loading...
