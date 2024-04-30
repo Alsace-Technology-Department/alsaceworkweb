@@ -6,6 +6,7 @@ interface ServerStatus {
     players: number;
 }
 
+// @ts-ignore
 export async function fetchServerStatus(serverIp: string): Promise<ServerStatus> {
     try {
         const response = await axios.get(`https://api.mcstatus.io/v2/status/java/${serverIp}`);
