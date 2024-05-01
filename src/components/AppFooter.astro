@@ -1,5 +1,7 @@
 ---
 import Container from "./Container.astro";
+
+const year = new Date().getFullYear();
 ---
 
 <footer class="py-20 md:py-40">
@@ -10,17 +12,109 @@ import Container from "./Container.astro";
             >
                 <ul class="list-inside space-y-8">
                     <li><a href="https://alsaceteam.feishu.cn/wiki/LVviwKi4HiSwa3kAg8Ic2EBNnYg"
-                           class="transition hover:text-primary">服务器手册</a></li>
+                           class="flex items-center space-x-3 transition hover:text-primary">
+                        <svg class="w-5" width="24" height="24" viewBox="0 0 48 48" fill="currentColor"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M7 37C7 29.2967 7 11 7 11C7 7.68629 9.68629 5 13 5H35V31C35 31 18.2326 31 13 31C9.7 31 7 33.6842 7 37Z"
+                                    fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                            <path
+                                    d="M35 31C35 31 14.1537 31 13 31C9.68629 31 7 33.6863 7 37C7 40.3137 9.68629 43 13 43C15.2091 43 25.8758 43 41 43V7"
+                                    stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            <path
+                                    d="M14 37H34" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                        </svg>
+                        <span>服务器手册</span></a></li>
                     <li><a href="https://alsaceteam.feishu.cn/wiki/KPKvwwlISioz0EkEOfScRuXRnjT"
-                           class="transition hover:text-primary">新人游玩指南</a></li>
+                           class="flex items-center space-x-3 transition hover:text-primary">
+                        <svg class="w-5" width="24" height="24" viewBox="0 0 48 48" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M24 44C33.3888 44 41 36.3888 41 27C41 17.6112 33.3888 10 24 10C14.6112 10 7 17.6112 7 27C7 36.3888 14.6112 44 24 44Z"
+                                    fill="currentColor" stroke="currentColor" stroke-width="4"/>
+                            <path
+                                    d="M19 4H29" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            <path
+                                    d="M20 27L24 20L28 27L24 34L20 27Z" stroke="#FFF" stroke-width="4"
+                                    stroke-linecap="round" stroke-linejoin="round"/>
+                            <path
+                                    d="M7 27H11" stroke="#FFF" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            <path
+                                    d="M37 27H41" stroke="#FFF" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            <path
+                                    d="M24 10L24 14" stroke="#FFF" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            <path d="M24 40L24 44" stroke="#FFF" stroke-width="4" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M17.5 42.7131C19.5024 43.5424 21.6978 44 24 44C26.3022 44 28.4976 43.5424 30.5 42.7131"
+                                  stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path
+                                    d="M8.28691 20.5C7.45764 22.5024 7 24.6978 7 27C7 29.3022 7.45764 31.4976 8.28691 33.5"
+                                    stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            <path
+                                    d="M39.7129 20.5C40.5422 22.5024 40.9998 24.6978 40.9998 27C40.9998 29.3022 40.5422 31.4976 39.7129 33.5"
+                                    stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            <path
+                                    d="M17.0078 11.5C19.1405 10.5364 21.5077 10 24.0001 10C26.4925 10 28.8597 10.5364 30.9924 11.5"
+                                    stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                        </svg>
+                        <span>新人游玩指南</span></a></li>
                     <li><a href="https://alsaceteam.feishu.cn/wiki/Pm87wSa3oikct9kqdTNcJm0Pnke"
-                           class="transition hover:text-primary">命令指南</a></li>
+                           class="flex items-center space-x-3 transition hover:text-primary">
+                        <svg class="w-5" width="24" height="24" viewBox="0 0 48 48" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <rect
+                                    x="4" y="8" width="40" height="32" rx="2" stroke="currentColor"
+                                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path
+                                    d="M4 10C4 8.89543 4.89543 8 6 8H42C43.1046 8 44 8.89543 44 10V16H4V10Z"
+                                    fill="currentColor" stroke="currentColor"
+                                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path
+                                    d="M25 23L23 34" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M31 23L37 28L31 34" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M17 22.9999L11 27.9999L17 33.9999" stroke="currentColor"
+                                  stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>命令指南</span></a></li>
                 </ul>
                 <ul class="list-inside space-y-8">
                     <li><a href="https://alsaceteam.feishu.cn/wiki/RrHWwN3TtihgSyk35blcaJk3ncd"
-                           class="transition hover:text-primary">常见问题指南</a></li>
+                           class="flex items-center space-x-3 transition hover:text-primary">
+                        <svg class="w-5" width="24" height="24" viewBox="0 0 48 48" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z"
+                                  fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                            <path d="M24 28.625V24.625C27.3137 24.625 30 21.9387 30 18.625C30 15.3113 27.3137 12.625 24 12.625C20.6863 12.625 18 15.3113 18 18.625"
+                                  stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M24 37.625C25.3807 37.625 26.5 36.5057 26.5 35.125C26.5 33.7443 25.3807 32.625 24 32.625C22.6193 32.625 21.5 33.7443 21.5 35.125C21.5 36.5057 22.6193 37.625 24 37.625Z"
+                                  fill="#FFF"/>
+                        </svg>
+                        <span>常见问题指南</span></a></li>
                     <li><a href="https://alsaceteam.feishu.cn/wiki/SptxwarANiJtcHkxV8IcU5p6nqe"
-                           class="transition hover:text-primary">更新日志</a></li>
+                           class="flex items-center space-x-3 transition hover:text-primary">
+                        <svg class="w-5" width="24" height="24" viewBox="0 0 48 48" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+                                  fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M33.5424 27C32.2681 31.0571 28.4778 34 24.0002 34C19.5226 34 15.7323 31.0571 14.458 27V33"
+                                  stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M33.5424 15V21C32.2681 16.9429 28.4778 14 24.0002 14C19.5226 14 15.7323 16.9429 14.458 21"
+                                  stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>更新日志</span></a></li>
                     <li>
                         <a href="https://github.com/Alsace-Technology-Department"
                            class="flex items-center space-x-3 transition hover:text-primary">
@@ -46,14 +140,13 @@ import Container from "./Container.astro";
             >我们不仅仅是一个建筑服务器，它是一个汇聚创意、技术与乐趣的社区</span
             >
 
-                <span class="block text-gray-500 dark:text-gray-400">© 2020 - 2024 长沙阿尔萨斯文化传播有限公司 All Rights Reserved.<span
-                        id="year"></span></span>
+                <span class="block text-gray-500 dark:text-gray-400">&copy; 2020 - {year} 长沙阿尔萨斯文化传播有限公司 All Rights Reserved.</span>
 
                 <span class="flex justify-between text-gray-600 dark:text-white">
-              <a href="https://alsaceteam.feishu.cn/wiki/F8AHwoD18iq45fk3ieSc6pcGnYy" class="font-medium">用户协议</a>
-                        <a href="https://alsaceteam.feishu.cn/wiki/MeskwzXl1icsnXkQc4nc7BJknRh"
-                           class="font-medium">地图托管协议</a>
-            </span>
+                    <a href="https://alsaceteam.feishu.cn/wiki/F8AHwoD18iq45fk3ieSc6pcGnYy" class="font-medium">用户协议</a>
+                    <a href="https://alsaceteam.feishu.cn/wiki/MeskwzXl1icsnXkQc4nc7BJknRh"
+                       class="font-medium">地图托管协议</a>
+                </span>
 
                 <span class="block text-gray-500 dark:text-gray-400"
                 ><a href="https://beian.miit.gov.cn/" class="font-semibold text-gray-600 dark:text-white">湘ICP备2023023798号</a></span
