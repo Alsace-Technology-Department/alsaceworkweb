@@ -67,4 +67,4 @@ jobs:
       - name: 上传到腾讯云COS并刷新CDN
         run: |
           coscmd upload -rfs --delete ./dist/ /
-          tccli cdn PurgePathCache --cli-unfold-argument --Paths https://worl.alsace.team/ --FlushType flush
+          tccli cdn PurgePathCache --cli-unfold-argument --Paths https://work.alsace.team/ --FlushType flush
