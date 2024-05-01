@@ -1,32 +1,8 @@
-# Sample workflow for building and deploying an Astro site to GitHub Pages
-#
-# To get started with Astro see: https://docs.astro.build/en/getting-started/
-#
-name: Deploy Astro site to Pages
+name: Continuous integration of static websites to COS
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-env:
-  BUILD_PATH: "." # default value when not using subfolders
-  # BUILD_PATH: subfolder
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -76,15 +52,31 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
     runs-on: ubuntu-latest
-    name: Deploy
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: 检出仓库代码
+        uses: actions/checkout@master
+
+      - name: 安装腾讯云依赖
+        run: |
+          sudo pip install coscmd
+          sudo pip install tccli
+
+      - name: 配置腾讯云依赖
+        env:
+          SECRET_ID: ${{ secrets.TCLOUD_API_ID }}
+          SECRET_KEY: ${{ secrets.TCLOUD_API_KEY }}
+          BUCKET: work-1318358151
+          REGION: ap-shanghai
+        run: |
+          coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+          tccli configure set secretId $SECRET_ID
+          tccli configure set secretKey $SECRET_KEY
+          tccli configure set region $REGION
+
+      - name: 上传到腾讯云COS并刷新CDN
+        run: |
+          coscmd upload -rfs --delete ./dist/ /
+          tccli cdn PurgePathCache --cli-unfold-argument --Paths https://worl.alsace.team/ --FlushType flush
