@@ -33,7 +33,7 @@ onServerPrefetch(async () => {
 <template>
   <div v-if="serverStatus" class="group p-6 sm:p-8 rounded-3xl border dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl">
     <div class="flex items-center justify-between mb-4">
-      <h3 class="text-2xl font-semibold text-black">
+      <h3 class="text-2xl font-semibold text-black dark:text-secondary">
         {{ props.serverName }}
       </h3>
       <p class="text-gray-600 dark:text-gray-300">
@@ -51,7 +51,7 @@ onServerPrefetch(async () => {
       </div>
     </div>
     <div v-if="serverStatus.status === 'online'">
-      <p class="text-4xl text-gray-900">
+      <p class="text-4xl text-gray-900 dark:text-secondary">
         {{ serverStatus.players }}
       </p>
       <p class="text-gray-600 dark:text-gray-300">
